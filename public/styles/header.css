@@ -1,0 +1,25 @@
+.main-header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  flex-direction: column;
+  background-color: #db943d;
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  padding: 0.9em;
+
+}
+
+.avatar {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5em;
+}
+
+.user-name {
+  justify-content: center;
+  display: flex;
+}
+
+.user-name > h2 {
+  margin: 0.1em;
+}
