@@ -1,6 +1,6 @@
 nav {
   overflow: hidden;
-  /* position: fixed; */
+  position: fixed;
   top: 0;
   z-index: 1000;
   background-color: #4056A1;

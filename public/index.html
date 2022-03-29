@@ -40,6 +40,7 @@
         </div>
       </div>
     </nav>
+    <div class="after-nav">
     <header class="main-header">
       <div class="avatar">
           <img src="/images/profile-hex.png"> 
@@ -49,14 +50,13 @@
           <h2>Lucky Kim</h2>
       </div>
   </header>
-
     <!-- Page-specific (main) content here -->
     <main class="container">
         <section class="new-tweet">
           <h2>Compose Tweet</h2>
           <form method="POST" action="/tweets/">
             <label class="label" for="tweet-text">What are you humming about?</label>
-            <textarea name="text" class="tweet-text">
+            <textarea name="text" class="tweet-text" autofocus>
             </textarea>
             <div class="below-tweet">
               <button class="btn" type="submit">Tweet</button>
@@ -64,31 +64,10 @@
             </div>
           </form>
         </section>
-      <section class="tweet-container">
-        <article class="tweets"> 
-          <header>
-            <div class="user">
-              <i class="fa-solid fa-user-astronaut"></i>
-              <span>Rhonda Jacobs</span>
-            </div>
-            <div class="user-handle">@Mrs Jacobs</div>
-          </header>
-            <main class="old-tweets">
-              <h4 class="tweet-msg">Hello World!</h4>
-              <div class="tweet-msg-line"></div>
-            </main>
-          <footer>
-            <div class="post-date">10 days ago</div>
-            <div class="tweet-icons">
-              <i class="fa-solid fa-flag"></i>
-              <i class="fa-solid fa-retweet"></i>
-              <i class="fa-solid fa-heart"></i>
-            </div>
-          </footer>
-        </article>
-      </section>
+      <section id="tweet-container"></section>
     </main>
-    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+   </div>
+   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
 

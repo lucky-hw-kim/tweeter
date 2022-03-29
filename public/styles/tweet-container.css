@@ -1,27 +1,22 @@
 
-
-.tweet-container{
+article.tweet {
   margin-top: 2em;
-  border: 3px solid black;
-  
-}
-
-article.tweets {
   display: flex;
   flex-direction: column;
   height: 250px;
   justify-content: space-between;
   padding: 0.5em 0.7em;
+  border: 3px solid black;
 }
 
-.tweets > header {
+.tweet > header {
   background-color: #f4f1ec;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.tweets > footer {
+.tweet > footer {
   display: flex;
   justify-content: space-between;
   font-size: 0.75em;
@@ -33,19 +28,22 @@ article.tweets {
   color:  #4056A1;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+.fa-flag, .fa-retweet, .fa-heart{
+  padding-right: 0.5em;
+} 
 
 .fa-flag:hover, .fa-retweet:hover, .fa-heart:hover{
   color: rgb(232, 213, 74);
 } 
 
-.fa-user-astronaut {
-  font-size: 2.3em;
-  margin-right: 0.3em;
+.avatar {
+  margin-right: 0.5em;
 }
 
 .user {
   display: flex;
   align-items: center;
+
 }
 
 .tweet-msg-line {
@@ -55,7 +53,6 @@ article.tweets {
 
 .tweet-msg {
   padding: 0.01em 0.7em;
-  fo
 }
 
 .post-date {
@@ -63,7 +60,7 @@ article.tweets {
 }
 
 .user-handle {
-  color: rgba(30, 29, 29, 0.4);
+  color: rgba(30, 29, 29, 0.3);
   font-weight: 600;
   padding-right: 0.4em;
 }
