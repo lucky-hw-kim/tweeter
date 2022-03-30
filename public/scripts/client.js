@@ -4,14 +4,15 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  const $tweetForm = $('.tweet-submit-form');
+  const $tweetForm = $('.tweet-submit-form')
   const text = $('.tweet-text');
   const $scrollUpBtn = $('.fa-circle-chevron-up');
+  const $newTweet = $('.new-tweet');
 
   $('#empty').hide();
   $('#exceed').hide();
   
-  //scroll page to the top
+  //Scroll to top button appears
   $(window).scroll(function() {
     if ($(window).scrollTop() > 100) {
       $scrollUpBtn.addClass('btn-show');
@@ -20,16 +21,23 @@ $(document).ready(function() {
     }
   });
 
+  //scroll page to the top & slides down the new tweetpage
   $scrollUpBtn.on('click', function(e) {
     e.preventDefault();
     $('html, body').animate({scrollTop:0}, '300');
+    if($newTweet.hasClass("form-toggle")){
+      text.focus();
+    } else {
+      $newTweet.toggleClass("form-toggle");
+      text.focus();
+    }
   });
 
 
   // Toggle new tweet section
   const $navArrow = $('.fa-angles-down');
   $navArrow.click(function() {
-    $('.new-tweet').toggleClass("form-toggle");
+    $newTweet.toggleClass("form-toggle");
     text.focus();
   })
 
@@ -40,12 +48,13 @@ $(document).ready(function() {
     return div.innerHTML;
   };
 
+  //Load and render all the tweets to the page
   const loadTweets = function () {
   $.get('/tweets/', function (data){
     renderTweets(data)
     })
+    $('#tweet-container').empty()
   }
-
   loadTweets();
 
   let renderTweets = function (tweets) {
@@ -79,7 +88,6 @@ $(document).ready(function() {
     return $tweet;
   }
 
-      
     $tweetForm.submit(function(event) {
       //Stop backend POST request
       event.preventDefault();
@@ -97,15 +105,9 @@ $(document).ready(function() {
         $('#exceed').slideDown().show();
       } else {
         let serializedText = text.serialize();   
-        $.post('/tweets/', serializedText).done(() => {
-          $.get('/tweets/', function (data){
-            const newTweet = data[data.length - 1];
-            const $createTweet = createTweetElement(newTweet);
-            $('#tweet-container').prepend($createTweet);
-          });
-          $('#tweet-container').empty()
+        $.post('/tweets/', serializedText).done(()=> {
           loadTweets();
-        });
+        })
         text.parent().find(".counter").removeClass('text-red').val(140);
         text.val('');
       }
@@ -115,7 +117,12 @@ $(document).ready(function() {
 
   //.empty()
 
-
+  // .done(() => {
+  //   $.get('/tweets/', function (data){
+  //     const newTweet = data[data.length - 1];
+  //     const $createTweet = createTweetElement(newTweet);
+  //     $('#tweet-container').prepend($createTweet);
+  //   });
 
 
 

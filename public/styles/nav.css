@@ -29,7 +29,7 @@ nav {
 .fa-angles-down {
   justify-content: center;
   display: flex;
-  color: red;
+  color: rgb(185, 37, 37);
   margin-top: 0.4em;
   cursor: pointer;
 }
