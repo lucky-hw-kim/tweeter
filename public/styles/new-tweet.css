@@ -6,12 +6,13 @@
    margin-top: 0.4em;
  }
 
- .btn {
+ .tweet-btn {
    border: 0;
    background-color: #4056A1;
    color: #f4f1ec;
    width: 4em;
    height: 1.5em;
+   cursor: pointer;
  }
 
  .tweet-text {
