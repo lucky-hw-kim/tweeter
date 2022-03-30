@@ -7,14 +7,16 @@ $(document).ready(function() {
 
   const loadTweets = function () {
   $.get('/tweets/', function (data){
-    renderTweets(data);
+    renderTweets(data)
     })
   }
+
   loadTweets();
 
-  const renderTweets = function (tweets) {
+
+  let renderTweets = function (tweets) {
     for(let tweet of tweets) {
-     $('#tweet-container').append(createTweetElement(tweet))
+     $('#tweet-container').prepend(createTweetElement(tweet))
     }
   }
 
@@ -47,32 +49,38 @@ $(document).ready(function() {
   const $tweetForm = $('#tweet-submit-form');
   const text = $('.tweet-text')
 
-  $tweetBtn.click(function() {
+  // $tweetBtn.click(function() {
     $tweetForm.submit(function(event) {
-      if(text.val().length > 140) {
-        alert(`⚠️Your post length exceeds the limit (140 characters)!!!⚠️`)
-        event.preventDefault();
-      } else if(text.val().length < 1 || text.val() === null) {
+      //Stop backend POST request
+      event.preventDefault();
+      //If text is longer than 140, alert error message
+      //If 0 or null alert error message
+      if(text.val().length < 1 || text.val() === null) {
+        console.log('text:',text.val());
         alert(`⚠️You need to write something to post it!!!⚠️`)
-        event.preventDefault();
+      } 
+      else if(text.val().length > 140) {
+        console.log(text.val());
+        alert(`⚠️Your post length exceeds the limit (140 characters)!!!⚠️`)
       } else {
         let serializedText = text.serialize();   
-        $.post('/tweets/', serializedText);
-        event.preventDefault();
+        $.post('/tweets/', serializedText).done(() => {
+          $.get('/tweets/', function (data){
+            console.log('text:',text.val());
+            const newTweet = data[data.length - 1];
+            const $createTweet = createTweetElement(newTweet);
+            $('#tweet-container').prepend($createTweet);
+          });
+        });
+        $('.tweet-text').val('').focus();
+        $('.tweet-text').parent().find(".counter").removeClass('text-red').val(140);
       }
-      $('.tweet-text').val('');
-      $('.counter').replaceWith(140)
     })
    });
-})
+//    loadTweets();
+// })
 
 
-// else {
-//   $tweetForm.submit(function(event) {
-//     let serializedText = text.serialize();   
-//     $.post('/tweets/', serializedText);
-//     event.preventDefault();
-//   })
-//   $('.tweet-text').val('');
-//   $('.counter').replaceWith(140)
-// }
+
+
+

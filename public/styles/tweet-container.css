@@ -9,6 +9,12 @@ article.tweet {
   border: 3px solid black;
 }
 
+article.tweet:hover {
+  box-shadow: 0.6em 0.6em rgba(153, 164, 176, 0.736);
+}
+
+
+
 .tweet > header {
   background-color: #f4f1ec;
   display: flex;
@@ -48,7 +54,8 @@ article.tweet {
 
 .tweet-msg-line {
   border-bottom: 3px solid black;
-  padding-top: 0em;
+  width: 100%;
+
 }
 
 .tweet-msg {
@@ -66,5 +73,7 @@ article.tweet {
 }
 
 .length-control {
-  max-width: 900px;
+  max-width: 100%;
+  margin-left: 1em;
+  margin-right: 1em;
 }
