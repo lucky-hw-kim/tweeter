@@ -13,7 +13,6 @@ $(document).ready(function() {
 
   loadTweets();
 
-
   let renderTweets = function (tweets) {
     for(let tweet of tweets) {
      $('#tweet-container').prepend(createTweetElement(tweet))
@@ -30,7 +29,7 @@ $(document).ready(function() {
               <div class="user-handle">${tweet.user.handle}</div>
             </header>
               <div class=length-control>
-                <h4 class="tweet-msg">${tweet.content.text}</h4>
+                <h4 class="tweet-msg">${escape(tweet.content.text)}</h4>
                 <div class="tweet-msg-line"></div>
               </div>
             <footer>
@@ -45,7 +44,13 @@ $(document).ready(function() {
     return $tweet;
   }
 
-  const $tweetBtn = $('.tweet-btn');
+  //Escape function for preventing XSS
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const $tweetForm = $('#tweet-submit-form');
   const text = $('.tweet-text')
 
@@ -53,28 +58,26 @@ $(document).ready(function() {
     $tweetForm.submit(function(event) {
       //Stop backend POST request
       event.preventDefault();
+
       //If text is longer than 140, alert error message
       //If 0 or null alert error message
       if(text.val().length < 1 || text.val() === null) {
-        console.log('text:',text.val());
         alert(`⚠️You need to write something to post it!!!⚠️`)
       } 
       else if(text.val().length > 140) {
-        console.log(text.val());
         alert(`⚠️Your post length exceeds the limit (140 characters)!!!⚠️`)
       } else {
         let serializedText = text.serialize();   
         $.post('/tweets/', serializedText).done(() => {
           $.get('/tweets/', function (data){
-            console.log('text:',text.val());
             const newTweet = data[data.length - 1];
             const $createTweet = createTweetElement(newTweet);
             $('#tweet-container').prepend($createTweet);
           });
         });
-        $('.tweet-text').val('').focus();
-        $('.tweet-text').parent().find(".counter").removeClass('text-red').val(140);
       }
+      text.val('').focus();
+      text.parent().find(".counter").removeClass('text-red').val(140);
     })
    });
 //    loadTweets();
