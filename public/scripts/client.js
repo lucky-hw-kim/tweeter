@@ -10,7 +10,7 @@ $(document).ready(function() {
     renderTweets(data);
     })
   }
-  loadTweets()
+  loadTweets();
 
   const renderTweets = function (tweets) {
     for(let tweet of tweets) {
@@ -27,8 +27,10 @@ $(document).ready(function() {
               </div>
               <div class="user-handle">${tweet.user.handle}</div>
             </header>
+              <div class=length-control>
                 <h4 class="tweet-msg">${tweet.content.text}</h4>
                 <div class="tweet-msg-line"></div>
+              </div>
             <footer>
               <div class="post-date">${timeago.format(tweet.created_at)}</div>
               <div class="tweet-icons">
@@ -47,10 +49,30 @@ $(document).ready(function() {
 
   $tweetBtn.click(function() {
     $tweetForm.submit(function(event) {
-      let serializedText = text.serialize();   
-      console.log( `${serializedText} submitted`);
-      $.post('/tweets/', serializedText);
-      event.preventDefault();
+      if(text.val().length > 140) {
+        alert(`⚠️Your post length exceeds the limit (140 characters)!!!⚠️`)
+        event.preventDefault();
+      } else if(text.val().length < 1 || text.val() === null) {
+        alert(`⚠️You need to write something to post it!!!⚠️`)
+        event.preventDefault();
+      } else {
+        let serializedText = text.serialize();   
+        $.post('/tweets/', serializedText);
+        event.preventDefault();
+      }
+      $('.tweet-text').val('');
+      $('.counter').replaceWith(140)
     })
    });
 })
+
+
+// else {
+//   $tweetForm.submit(function(event) {
+//     let serializedText = text.serialize();   
+//     $.post('/tweets/', serializedText);
+//     event.preventDefault();
+//   })
+//   $('.tweet-text').val('');
+//   $('.counter').replaceWith(140)
+// }
