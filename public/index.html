@@ -39,7 +39,7 @@
         <span class="logo">tweeter</span>
         <div class="nav-right">
           <span><strong>Write</strong> a new tweet</span>
-          <i class="fa-solid fa-angles-down arrow-down"></i>
+          <i class="fa-solid fa-angles-down"></i>
         </div>
       </div>
     </nav>
@@ -56,10 +56,9 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
         <section class="new-tweet">
-          <h2>Compose Tweet</h2>
           <div class="error" id="empty" role="alert">⚠️ You need to write something to post it! ⚠️</div>
           <div class="error" id="exceed" role="alert">⚠️ Your post length exceeds the limit (140 characters)! ⚠️</div>
-          <form method="POST" action="/tweets/" id="tweet-submit-form">
+          <form method="POST" action="/tweets/" class="tweet-submit-form">
             <label class="label" for="text">What are you humming about?</label>
             <textarea name="text" class="tweet-text" autofocus></textarea>
             <div class="below-tweet">

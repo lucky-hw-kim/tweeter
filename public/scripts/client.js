@@ -4,8 +4,27 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
+  const $tweetForm = $('.tweet-submit-form');
+  const text = $('.tweet-text')
+
   $('#empty').hide();
   $('#exceed').hide();
+  
+
+  // Toggle new tweet section
+  const $navArrow = $('.fa-angles-down');
+  $navArrow.click(function() {
+    $('.new-tweet').toggleClass("form-toggle");
+    text.focus();
+  })
+
+  //Escape function for preventing XSS
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const loadTweets = function () {
   $.get('/tweets/', function (data){
     renderTweets(data)
@@ -45,17 +64,7 @@ $(document).ready(function() {
     return $tweet;
   }
 
-  //Escape function for preventing XSS
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
-
-  const $tweetForm = $('#tweet-submit-form');
-  const text = $('.tweet-text')
-
-  // $tweetBtn.click(function() {
+      
     $tweetForm.submit(function(event) {
       //Stop backend POST request
       event.preventDefault();
@@ -85,7 +94,7 @@ $(document).ready(function() {
       }
       text.focus();
     })
-   });
+  });
 
 
 

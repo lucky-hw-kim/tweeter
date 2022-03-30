@@ -1,3 +1,4 @@
+
 .main-header {
   display: flex;
   height: 400px;
@@ -6,7 +7,8 @@
   background-color: #db943d;
   background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   padding: 0.9em;
-
+  position: relative;
+  z-index: 3;
 }
 
 .avatar {

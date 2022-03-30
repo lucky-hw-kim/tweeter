@@ -26,11 +26,16 @@ nav {
   font-size: 0.9em;
 }
 
-.arrow-down {
+.fa-angles-down {
   justify-content: center;
   display: flex;
   color: red;
   margin-top: 0.4em;
+  cursor: pointer;
+}
+
+.fa-angles-down:hover {
+  font-size: 1.2em;
 }
 
 
