@@ -4,7 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-
+  $('#empty').hide();
+  $('#exceed').hide();
   const loadTweets = function () {
   $.get('/tweets/', function (data){
     renderTweets(data)
@@ -59,13 +60,17 @@ $(document).ready(function() {
       //Stop backend POST request
       event.preventDefault();
 
+      //Hide the error message back 
+      $('#empty').slideUp();
+      $('#exceed').slideUp();
+
       //If text is longer than 140, alert error message
       //If 0 or null alert error message
       if(text.val().length < 1 || text.val() === null) {
-        alert(`⚠️You need to write something to post it!!!⚠️`)
+        $('#empty').slideDown().show();
       } 
       else if(text.val().length > 140) {
-        alert(`⚠️Your post length exceeds the limit (140 characters)!!!⚠️`)
+        $('#exceed').slideDown().show();
       } else {
         let serializedText = text.serialize();   
         $.post('/tweets/', serializedText).done(() => {
@@ -75,13 +80,12 @@ $(document).ready(function() {
             $('#tweet-container').prepend($createTweet);
           });
         });
+        text.parent().find(".counter").removeClass('text-red').val(140);
+        text.val('');
       }
-      text.val('').focus();
-      text.parent().find(".counter").removeClass('text-red').val(140);
+      text.focus();
     })
    });
-//    loadTweets();
-// })
 
 
 
