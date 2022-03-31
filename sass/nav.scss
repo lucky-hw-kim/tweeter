@@ -1,6 +1,4 @@
-/*
-* Navigation Bar components
-*/
+@use 'variables';
 
 nav {
   overflow: hidden;
@@ -15,29 +13,23 @@ nav {
 }
 
 .logo {
-  font-family: Bungee, sans-serif;
+  font-family: variables.$font-logo;
   font-size: 1.1em;
 }
 
 .nav-bar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @include variables.flex ($direction: row, $justify: space-between);
 }
 
 .nav-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: none;
+  @include variables.flex ($justify: none);
   font-size: 0.65em;
   padding-top: 0.2em;
 }
 
 .fa-angles-down {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  color: rgb(185, 37, 37);
+  @include variables.flex ($direction: row);
+  color: variables.$arrow-btn-color;
   margin-top: 0.4em;
   cursor: pointer;
 }
@@ -45,3 +37,6 @@ nav {
 .fa-angles-down:hover {
   font-size: 1.2em;
 }
+
+
+

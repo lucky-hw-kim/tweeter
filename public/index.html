@@ -2,41 +2,60 @@
 <html lang="en">
   <head>
     <!-- Preven default zooming behaviour instead use mobile layout-->
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
 
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- External Fonts: 'Bungee' & 'Source Sans Pro' -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="styles/nav.css" type="text/css">
-    <link rel="stylesheet" href="styles/header.css" type="text/css">
-    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css">
-    <link rel="stylesheet" href="styles/tweet-container.css" type="text/css">
-    <link rel="stylesheet" href="styles/media-query.css" type="text/css">
-  
-    
+    <link rel="stylesheet" href="styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="styles/tweet-container.css" type="text/css" />
+    <link rel="stylesheet" href="styles/media-query.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- Timeago -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"
+      integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -54,34 +73,37 @@
       </div>
     </nav>
     <div class="after-nav">
-    <header class="main-header">
-      <div class="avatar">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div class="user-name">
+      <header class="main-header">
+        <div class="avatar">
+          <img src="/images/profile-hex.png" />
+        </div>
+        <br/>
+        <div class="user-name">
           <h2>Lucky Kim</h2>
-      </div>
-    </header>
-    <!-- Page-specific (main) content here -->
-    <main class="container">
+        </div>
+      </header>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
         <section class="new-tweet">
-          <div class="error" id="empty" role="alert">⚠️ You need to write something to post it! ⚠️</div>
-          <div class="error" id="exceed" role="alert">⚠️ Your post length exceeds the limit (140 characters)! ⚠️</div>
+          <div class="error" id="empty" role="alert">
+            ⚠️ You need to write something to post it! ⚠️
+          </div>
+          <div class="error" id="exceed" role="alert">
+            ⚠️ Your post length exceeds the limit (140 characters)! ⚠️
+          </div>
           <form method="POST" action="/tweets/" class="tweet-submit-form">
             <label class="label" for="text">What are you humming about?</label>
             <textarea name="text" class="tweet-text" autofocus></textarea>
             <div class="below-tweet">
-              <button class="tweet-btn" type="submit" >Tweet</button>
+              <button class="tweet-btn" type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
         </section>
-      <section id="tweet-container"></section>
-      <i class="fa-solid fa-circle-chevron-up"></i>
-    </main>
-   </div>
-   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+        <section id="tweet-container"></section>
+        <i class="fa-solid fa-circle-chevron-up"></i>
+      </main>
+    </div>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
 </html>
-

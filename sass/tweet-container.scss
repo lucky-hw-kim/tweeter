@@ -1,10 +1,7 @@
-/* 
-* Showing list of tweet components
-*/
+@use 'variables';
+
 article.tweet {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include variables.flex;
   margin-top: 0.5em;
   display: flex;
   flex-direction: column;
@@ -18,39 +15,33 @@ article.tweet:hover {
   box-shadow: 0.6em 0.6em rgba(153, 164, 176, 0.736);
 }
 
+
 .tweet > header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @include variables.flex($direction: row, $justify: space-between);
   background-color: transparent;
   align-items: center;
 }
 
 .tweet > footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @include variables.flex($direction: row, $justify: space-between);
   font-size: 0.65em;
   padding: 0.3em 0.7em;
   margin-bottom: 1em;
 }
 
+
 .tweet-icons {
-  color: #4056a1;
+  color:  #4056A1;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-
-.fa-flag,
-.fa-retweet,
-.fa-heart {
+.fa-flag, .fa-retweet, .fa-heart{
   padding-right: 0.5em;
-}
+} 
 
-.fa-flag:hover,
-.fa-retweet:hover,
-.fa-heart:hover {
+.fa-flag:hover, .fa-retweet:hover, .fa-heart:hover{
   color: rgb(232, 213, 74);
-}
+} 
+
 
 .user {
   display: flex;

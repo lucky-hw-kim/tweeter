@@ -1,0 +1,11 @@
+// Decalre Variables
+
+$font-logo: Bungee, sans-serif;
+$primary-color: #4056A1;
+$arrow-btn-color: rgb(185, 37, 37);
+
+@mixin flex($direction: column, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}

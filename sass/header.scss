@@ -1,11 +1,7 @@
-/* 
-* Page Header Components
-*/
+@use 'variables';
 
 .main-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: none;
+  @include variables.flex ($justify: none);
   height: 550px;
   width: 100%;
   background-color: #db943d;
@@ -24,8 +20,7 @@
 }
 
 .avatar, .user-name {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  @include variables.flex ($direction: row);
   margin-top: 100px;
 }
+

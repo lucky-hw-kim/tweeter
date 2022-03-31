@@ -1,9 +1,9 @@
-/* 
-* Media-query for responsive website
-*/
+@use 'variables';
+
 
 /* Large Phone Screen Size (breakpoint at 425px) */
 @media only screen and (min-width: 425px) {
+
   .logo {
     font-size: 1.3em;
   }
@@ -13,15 +13,18 @@
   }
 
   nav {
-    padding: 1.2em;
+    padding: 1.2em ;
   }
 
   article.tweet {
     margin-top: 1.5em;
   }
+
 }
+
 /* Tablet Size (breakpoint at 768px) */
 @media only screen and (min-width: 768px) {
+
   .logo {
     font-size: 1.7em;
   }
@@ -31,7 +34,7 @@
   }
 
   nav {
-    padding: 1.2em;
+    padding: 1.2em ;
   }
 
   article.tweet {
@@ -43,27 +46,28 @@
     padding: 0.3em 0.7em;
     margin-bottom: 1em;
   }
-
+  
   .user {
     margin: 1.2em 0 0 1em;
   }
-
+  
   .user-icon {
     margin-right: 0.5em;
     width: 65px;
-  }
 
+  }
+  
   .tweet-msg {
     padding: 0em 0.7em;
     color: rgb(53, 48, 48);
     max-width: 100%;
     overflow-wrap: break-word;
   }
-
+  
   .post-date {
     font-weight: 600;
   }
-
+  
   .user-handle {
     padding-right: 1.5em;
     margin-top: 1em;
@@ -74,20 +78,21 @@
     font-size: 1em;
   }
 }
+
 /* desktop size (breakpoint at 1024px) */
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 1024px) { 
+
   body {
     width: 100%;
     margin: 0 auto;
   }
-
   nav {
-    background-color: #4056A1;
+    background-color: variables.$primary-color;
     width: 100%;
     font-size: 1em;
     padding: 1.5em;
-  }
-
+    }
+  
   .main-header {
     max-width: 500px;
     max-height: 380px;
@@ -101,9 +106,7 @@
   }
 
   .after-nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    @include variables.flex ($direction: row, $justify: space-between);
   }
 
   .avatar, .user-name {
@@ -112,6 +115,7 @@
 
   .user-name > h2 {
     margin-top: 0;
+
   }
 
   .logo {
@@ -136,4 +140,5 @@
   .tweet-msg {
     margin-top: -0.05 em;
   }
+
 }
