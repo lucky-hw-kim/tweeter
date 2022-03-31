@@ -1,8 +1,16 @@
 # Tweeter Project
 
-Tweeter is a simple, single-page Twitter clone.
+### Tweeter is a simple, single-page Twitter clone.
+
 This client-side Single Page App (SPA) was created to demonstrate ability to
 communicate with a server asynchronously via AJAX.
+
+## Screen Shots & gif demo
+  ![gif of desktop tweet demo](https://github.com/lucky-hw-kim/tweeter/blob/master/docs/tweeter-function-demo.gif?raw=true)
+  ![gif of error message demo](https://github.com/lucky-hw-kim/tweeter/blob/master/docs/tweeter-error-demo.gif?raw=true)
+  ![gif of icon hover demo](https://github.com/lucky-hw-kim/tweeter/blob/master/docs/tweeter-icon-demo.gif?raw=true)
+  ![screensht of tablet size page](https://github.com/lucky-hw-kim/tweeter/blob/master/docs/Tweeter-Home-Tablet.png?raw=true)
+  ![screensht of mobile size page](https://github.com/lucky-hw-kim/tweeter/blob/master/docs/Tweeter-Home-Mobile.png?raw=true)
 
 # Functionality
 
