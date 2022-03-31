@@ -1,0 +1,163 @@
+/* Large Phone Screen Size (breakpoint at 425px) */
+@media only screen and (min-width: 425px) {
+  .logo {
+    font-size: 1.3em;
+  }
+
+  .nav-right {
+    font-size: 0.9em;
+  }
+
+  nav {
+    padding: 1.2em ;
+  }
+
+  article.tweet {
+    margin-top: 1.5em;
+  }
+
+}
+
+
+/* Tablet Size (breakpoint at 768px) */
+@media only screen and (min-width: 768px) {
+  .logo {
+    font-size: 1.7em;
+  }
+
+  .nav-right {
+    font-size: 1em;
+  }
+
+  nav {
+    padding: 1.2em ;
+  }
+
+  article.tweet {
+    margin-top: 1.5em;
+  }
+
+  .tweet > footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75em;
+    padding: 0.3em 0.7em;
+    margin-bottom: 1em;
+  }
+  
+  
+  .tweet-icons {
+    color:  #4056A1;
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .fa-flag, .fa-retweet, .fa-heart{
+    padding-right: 0.5em;
+  } 
+  
+  .fa-flag:hover, .fa-retweet:hover, .fa-heart:hover{
+    color: rgb(232, 213, 74);
+  } 
+  
+  
+  .user {
+    display: flex;
+    align-items: center;
+    margin: 1.2em 0 0 1em;
+  }
+  
+  .user-icon {
+    margin-right: 0.5em;
+    width: 65px;
+
+  }
+  
+  .tweet-msg-line {
+    border-bottom: 3px solid black;
+    width: 100%;
+  
+  }
+  
+  .tweet-msg {
+    padding: 0em 0.7em;
+    color: rgb(53, 48, 48);
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+  
+  .post-date {
+    font-weight: 600;
+  }
+  
+  .user-handle {
+    color: rgba(30, 29, 29, 0.3);
+    font-weight: 600;
+    padding-right: 1.5em;
+    margin-top: 1em;
+    font-size: 1em;
+  }
+
+  .name {
+    font-size: 1em;
+  }
+}
+
+/* desktop size (breakpoint at 1024px) */
+@media only screen and (min-width: 1024px) { 
+  body {
+    width: 100%;
+    margin: 0 auto;
+  }
+  nav {
+    background-color: #4056A1;
+    width: 100%;
+    font-size: 1em;
+    padding: 1.5em;
+    }
+  
+  .main-header {
+    max-width: 500px;
+    max-height: 380px;
+    margin: 3em;
+  }
+
+  .container {
+    flex-shrink: 4;
+    margin: 1em 2em 0 auto;
+    min-width: 530px;
+  }
+
+  .after-nav {
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .avatar, .user-name {
+    margin-top: 0;
+  }
+
+  .user-name > h2 {
+    margin-top: 0;
+
+  }
+
+  .logo {
+    font-size: 1.5em;
+  }
+
+  .nav-right {
+    font-size: 1em;
+  }
+
+  article.tweet {
+    margin-top: 2em;
+    max-height: 300px;
+    padding: 0em 0.7em;
+    border: 3px solid black;
+  }
+
+
+
+
+
+}

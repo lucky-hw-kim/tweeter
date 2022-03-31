@@ -1,13 +1,14 @@
 /* change z-index */
 
 article.tweet {
-  margin-top: 2em;
+  margin-top: 0.5em;
   display: flex;
   flex-direction: column;
-  height: 250px;
+  max-height: 500px;
   justify-content: space-between;
-  padding: 0.5em 0.7em;
+  padding: 0em 0.4em;
   border: 3px solid black;
+
 }
 
 article.tweet:hover {
@@ -16,7 +17,7 @@ article.tweet:hover {
 
 
 .tweet > header {
-  background-color: #f4f1ec;
+  background-color: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,8 +26,9 @@ article.tweet:hover {
 .tweet > footer {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75em;
-  padding: 0.5em 0.7em;
+  font-size: 0.65em;
+  padding: 0.3em 0.7em;
+  margin-bottom: 1em;
 }
 
 
@@ -42,15 +44,20 @@ article.tweet:hover {
   color: rgb(232, 213, 74);
 } 
 
-.avatar {
-  margin-right: 0.6em;
-  margin-left: 0.5em;
-}
 
 .user {
   display: flex;
   align-items: center;
+  margin: 1.2em 0 0 1em;
+}
 
+.user-icon {
+  margin-right: 0.3em;
+  width: 50px;
+}
+
+.name {
+  font-size: 0.7em;
 }
 
 .tweet-msg-line {
@@ -74,6 +81,8 @@ article.tweet:hover {
   color: rgba(30, 29, 29, 0.3);
   font-weight: 600;
   padding-right: 1.5em;
+  margin-top: 1em;
+  font-size: 0.8em;
 }
 
 .length-control {

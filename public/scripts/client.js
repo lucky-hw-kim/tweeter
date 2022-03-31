@@ -67,8 +67,8 @@ $(document).ready(function() {
     let $tweet = `<article class="tweet"> 
             <header>
               <div class="user">
-                <img class="avatar" src=${tweet.user.avatars}>
-                <p>${tweet.user.name}</p>
+                <img class="user-icon" src=${tweet.user.avatars}>
+                <p class="name">${tweet.user.name}</p>
               </div>
               <div class="user-handle">${tweet.user.handle}</div>
             </header>
